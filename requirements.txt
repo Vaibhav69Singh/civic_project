@@ -1,3 +1,6 @@
 fastapi
 sqlalchemy
 dotenv
+passlib
+python-jose
+pydantic
