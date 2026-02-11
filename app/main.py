@@ -1,6 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from app.api.v1.routers.auth import router as auth_router
+from app.api.v1.routers.admin import router as admin_router
 from fastapi.middleware.cors import CORSMiddleware
+from app.utils.helper_functions import admin_check
 
 app = FastAPI(
     title="Civic issue backend",
@@ -19,6 +21,7 @@ app.add_middleware(
 
 
 app.include_router(auth_router, prefix="/api/v1/auth", tags=["Auth"])
+app.include_router(admin_router, prefix="/api/v1/admin", tags=["Admin"])
 
 
 @app.get("/")
