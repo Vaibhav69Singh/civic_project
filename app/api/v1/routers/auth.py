@@ -6,7 +6,7 @@ from app.services.auth_service import (create_new_user,
                                        UserDoesNotExistError,
                                        login_user_service,
                                        WrongPasswordError)
-from app.schemas.auth import UserCreate, UserLogin, AuthResponse
+from app.schemas.auth import UserCreate, AuthResponse
 from app.core.database import get_db
 
 
