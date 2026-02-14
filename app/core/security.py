@@ -7,10 +7,12 @@ from jose import jwt, JWTError
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def create_hash_pwd(password: str) -> str:
+    password = password[:72]
     return pwd_context.hash(password)
 
 
 def verify_hash_pwd(plain_pwd: str, hashed_pwd: str) -> bool:
+    plain_pwd = plain_pwd[:72]
     return pwd_context.verify(plain_pwd, hashed_pwd)
 
 
