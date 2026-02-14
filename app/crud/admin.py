@@ -9,3 +9,10 @@ def change_role(db: Session, user_email: str, role: str):
     db.commit()
     db.refresh(user_data)
     return user_data
+
+def all_non_admin(db: Session):
+    return (
+        db.query(User)
+        .filter(User.role != 'admin')
+        .all()
+    )
